@@ -1,0 +1,89 @@
+\documentclass[12pt]{article}
+\usepackage{fancyhdr}
+\usepackage[letterpaper, margin=1in]{geometry}
+%\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\sisetup{detect-weight=true, detect-family=true} % makes siunitx follow font formatting like bold, italic, etc.
+\usepackage{cancel}
+\usepackage{isotope}
+\usepackage{listings}
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage{xspace}
+\usepackage{booktabs} % makes tables pretty
+\usepackage{longtable} % for long tables
+\usepackage{multirow} % makes tables pretty
+\usepackage{multicol} % makes tables pretty
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\newcommand{\creflastconjunction}{, and\nobreakspace} % adds oxford comma to cleveref
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{titlesec}
+\usepackage{svg}
+\usepackage{pdflscape} % makes pages landscape
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+
+\doublespacing
+
+% bib if needed
+\bibliographystyle{ieeetr}
+
+
+% fancy header stuff
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\setlength{\headheight}{28pt}
+\lhead{NSE 667\\Spring 2022}
+\chead{Critical Flow\\}
+\rhead{Austin Warren\\Due June 3, 2022}
+
+\begin{document}
+Calculate the critical mass flows and the corresponding back pressures if the tank is filled with saturated liquid at a pressure of 35 bar, using
+% 
+\begin{enumerate}
+    \item HEM Model:
+    \begin{equation}
+        G_m = \sqrt{2 \left( h_{m,0} - h_m \right)}
+    \end{equation}
+    
+    
+    
+    \clearpage
+    %
+    \item Fauske Model:
+    For models with slip:
+    \begin{equation}
+        G_m = \frac{\sqrt{2 \left( h_{m,0} - h_m \right)}}{\left[ \frac{x}{\rho_g} + \frac{\left( 1-x \right)}{\rho_f} S \right] \left[ x + \left( 1-x \right)\frac{1}{S^2} \right]^{1/2}}\:.
+    \end{equation}
+    The Fauske model:
+    \begin{equation}
+        S = \left( \frac{\rho_f}{\rho_g} \right)^{1/2}\:,
+    \end{equation}
+    \begin{equation}
+        G_m = \frac{\sqrt{2 \left( h_{m,0} - h_m \right)}}{\left[ \frac{x}{\rho_g^{1/2}} + \frac{\left( 1-x \right)}{\rho_f^{1/2}} \right] \left[ \frac{x}{\rho_g} + \frac{\left( 1-x \right)}{\rho_f} \right]^{1/2}}\:.
+    \end{equation}
+    
+    
+    
+    \clearpage
+    %
+    \item Moody Model:
+    \begin{equation}
+        S = \left( \frac{\rho_f}{\rho_g} \right)^{1/3}
+    \end{equation}
+    
+
+
+
+\end{enumerate}
+
+\end{document}
