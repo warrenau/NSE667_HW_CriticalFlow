@@ -47,11 +47,16 @@
 \rhead{Austin Warren\\Due June 3, 2022}
 
 \begin{document}
-Calculate the critical mass flows and the corresponding back pressures if the tank is filled with saturated liquid at a pressure of 35 bar, using HEM, Fauske, and Moody models.
+Calculate the critical mass flows and the corresponding back pressures if the tank is filled with saturated liquid at a pressure of 35 bar, using HEM, Fauske, and Moody models. The general assumptions are listed below.
+\begin{itemize}
+    \item Adiabatic process without friction loss (isentropic)
+    \item Thermodynamics equilibrium quality $x_{th}$ equals the flow quality $x$
+    \item Steady-state
+\end{itemize}
 % 
 The general approach is to use the following expression that relates mass flux with enthalpy.
 \begin{equation}
-    G_m = \sqrt{2 \left( h_{m,0} - h_m \right)}
+    G_m = \rho_m \sqrt{2 \left( h_{m,0} - h_m \right)}
 \end{equation}
 Each model has its own modified expression, which will be listed in each section. The enthalpy can be used to determine the exit pressure. Since the process is assumed to be isentropic, we can determine the entropy of each phase at the exit.
 \begin{equation}
@@ -78,7 +83,7 @@ The initial conditions determined from the given saturated liquid pressure are l
 \begin{enumerate}
     \item HEM Model:
     \begin{equation}
-        G_m = \sqrt{2 \left( h_{m,0} - h_m \right)}
+        G_m = \rho_m \sqrt{2 \left( h_{m,0} - h_m \right)}
     \end{equation}
     
     
