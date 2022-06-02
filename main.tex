@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 \usepackage{fancyhdr}
 \usepackage[letterpaper, margin=1in]{geometry}
 %\usepackage{indentfirst}
@@ -17,6 +17,7 @@
 \usepackage{multirow} % makes tables pretty
 \usepackage{multicol} % makes tables pretty
 \usepackage{setspace}
+\usepackage[font={bf}]{caption}
 \usepackage{subcaption}
 \usepackage{hyperref}
 \usepackage{cleveref}
@@ -56,12 +57,18 @@ Calculate the critical mass flows and the corresponding back pressures if the ta
 % 
 The general approach is to use the following expression that relates mass flux with enthalpy.
 \begin{equation}
-    G_m = \rho_m \sqrt{2 \left( h_{m,0} - h_m \right)}
+    G_m = \rho_m \sqrt{2 \left( h_{m,0} - h_m \right)}\:,
+\end{equation}
+where
+\begin{equation}
+    \rho_m = \left( \frac{x_{th}}{\rho_g} + \frac{1-x_{th}}{\rho_f} \right)^{-1}\:.
 \end{equation}
 Each model has its own modified expression, which will be listed in each section. The enthalpy can be used to determine the exit pressure. Since the process is assumed to be isentropic, we can determine the entropy of each phase at the exit.
 \begin{equation}
     S_0 = S_e = S_v x + \left( 1-x \right) S_f
 \end{equation}
+I generated a list of exit pressure values ranging from zero to the initial pressure condition, used the exit pressure and the exit entropy to determine the exit enthalpies, densities, and quality, then used those values to determine the mass flux. All properties were determined using steam tables provided in the \textit{pyXSteam} package \cite{pyXSteam,XSteam,IAPWS97}.
+
 The initial conditions determined from the given saturated liquid pressure are listed in \Cref{tab:init}.
 
 \begin{table}[htbp]
@@ -88,7 +95,7 @@ The initial conditions determined from the given saturated liquid pressure are l
     
     
     
-    \clearpage
+    %\clearpage
     %
     \item Fauske Model:
     For models with slip:
@@ -105,7 +112,7 @@ The initial conditions determined from the given saturated liquid pressure are l
     
     
     
-    \clearpage
+    %\clearpage
     %
     \item Moody Model:
     \begin{equation}
@@ -116,5 +123,26 @@ The initial conditions determined from the given saturated liquid pressure are l
 
 
 \end{enumerate}
+Results are displayed on the following pages.
+
+\clearpage
+\Cref{fig:mass flow} shows the mass flux and corresponding exit pressures for all three models. It looks very similar to the example provided, with HEM having the lowest critical flow, and the Moody model having the greatest.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{1-plots/graph_Gm.pdf}
+    \caption{Mass flux vs normalized exit pressure for HEM, Fauske, and Moody models.}
+    \label{fig:mass flow}
+\end{figure}
+
+\Cref{tab:crit} lists the critical values of pressure and mass flux for all three models. The maximum listed values match up well with what the plot shows. The HEM model produces the lowest mass flux value and the Moody model produces the largest. It is also interesting to note that the critical point occurs at a larger exit pressure for HEM than for the other models. (Sorry for the formatting in this table, python was not cooperating.)
+\input{2-tabs/crit_tab.tex}
+
+
+
+
+
+\clearpage
+% bib / works cited
+\bibliography{bibliography.bib}
 
 \end{document}
